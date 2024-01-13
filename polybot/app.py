@@ -14,7 +14,7 @@ dynamodb_table = 'dynamo-shirin-aws'
 secret_name = 'telegram_secrets'
 region_name = 'eu-central-1'
 
-# TODO load TELEGRAM_TOKEN value from Secret Manager
+# load TELEGRAM_TOKEN value from Secret Manager
 secrets_client = boto3.client('secretsmanager', region_name=region_name)
 secret_response = secrets_client.get_secret_value(SecretId=secret_name)
 secret_data = json.loads(secret_response['SecretString'])
@@ -36,7 +36,7 @@ def webhook():
     return 'Ok'
 
 
-# TODO DynamoDB
+# DynamoDB
 # Create a DynamoDB client
 dynamodb_client = boto3.client('dynamodb', region_name=region_name)
 
